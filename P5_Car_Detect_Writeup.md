@@ -15,14 +15,14 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./examples/car_non_car.png?
+[image1]: ./examples/car_non_car.png
 [image2]: ./examples/HOG_example.png
-[image3]: ./examples/my_sliding_windows.png?
-[image4]: ./examples/sliding_window.jpg
+[image3]: ./examples/my_sliding_window.png
+[image4]: ./examples/sliding_windows.png
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
+[video1]: ./project_video_out.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -69,7 +69,7 @@ The image below shows the first attempt at using find_cars on one of the test im
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Ultimately I searched on four scales using HSV 3-channel HOG features  in the feature vector, which provided a nice result.  Here are some example images:
 
 ![alt text][image4]
 ---
@@ -86,11 +86,11 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
+### Here is  the corresponding heatmap:
 
 ![alt text][image5]
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
+### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from windows of different sizes:
 ![alt text][image6]
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
@@ -104,4 +104,6 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Although it is good, the vehicle detection piepline is still not perfect. Sometimes it takes several seconds to detect a car that is present in the images. Other times, it mistakenly classifies 2 vehicles as 1 when they are close to each other. The processing time to create the output video is also very long, which makes it impractical for real-time applications. In order to make it more robust, a better classifier such as DNN  or an ensemble of SVMs with a a range of kernel functions can be used.
+
+L  
