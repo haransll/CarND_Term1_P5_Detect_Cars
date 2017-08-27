@@ -77,7 +77,7 @@ Ultimately I searched on four scales using HSV 3-channel HOG features  in the fe
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result][video1]
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -106,4 +106,4 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 Although it is good, the vehicle detection piepline is still not perfect. Sometimes it takes several seconds to detect a car that is present in the images. Other times, it mistakenly classifies 2 vehicles as 1 when they are close to each other. The processing time to create the output video is also very long, which makes it impractical for real-time applications. In order to make it more robust, a better classifier such as DNN  or an ensemble of SVMs with a a range of kernel functions can be used.
 
-L  
+  
